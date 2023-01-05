@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "intmain_settings_app",
+    "student_dashboard",
 ]
 
 MIDDLEWARE = [

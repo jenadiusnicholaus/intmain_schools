@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "intmain_settings_app",
     "student_dashboard",
+    "authentication",
 ]
 
 MIDDLEWARE = [

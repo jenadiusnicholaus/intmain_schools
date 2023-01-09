@@ -81,7 +81,8 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": "intmaindb",
-        "USER": "intmainadmin",
+        # "USER": "intmainadmin",
+        "USER": "postgres",
         "PASSWORD": "intmain2023",
         "HOST": "localhost",
         "PORT": "",

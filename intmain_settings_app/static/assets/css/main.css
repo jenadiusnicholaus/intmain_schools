@@ -2713,3 +2713,9 @@ section {
 .footer .credits a {
   color: #fff;
 }
+
+/* new style */
+
+.login-button{
+  color: var(--color-secondary);
+}

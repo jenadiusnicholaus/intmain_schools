@@ -1,36 +1,12 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 
-
+@login_required
 def home(request):
     context = {}
     return render(
         request, template_name="student_dashboard_templates/home.html", context=context
     )
-
-def supplierlist(request):
-    context = {}
-    return render(request, template_name="student_dashboard_templates/supplier.html")
-
-
-def add_suppliers(request):
-    return render(
-        request, template_name="student_dashboard_templates/add_supplier.html"
-    )
-
-
-def cars(request):
-    return render(request, template_name="student_dashboard_templates/cars.html")
-
-
-def add_cars(request):
-    return render(request, template_name="student_dashboard_templates/add_car.html")
-
-
-def add_cars(request):
-    return render(request, template_name="student_dashboard_templates/add_car.html")
-
-
-def customers(request):
-    return render(request, template_name="student_dashboard_templates/customers.html")

@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    {% include 'includes/head_tag.html' %}
+  <body>
+    <!-- Loader starts-->
+    <div class="loader-wrapper">
+      <div class="theme-loader">    
+        <div class="loader-p"></div>
+      </div>
+    </div>
+    <!-- Loader ends-->
+    <!-- page-wrapper Start-->
+    {%block contents%}
+    {% endblock%}
+
+    {%include 'includes/scripts.html'%}
+  </body>
+</html>

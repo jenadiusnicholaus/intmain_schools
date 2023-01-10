@@ -12,7 +12,17 @@
               {% csrf_token %}
                 <h4>Login</h4>
                 <h6>Welcome back! Log in to your account.</h6>
-                <small style='color:red;'> {{ form.non_field_errors }}
+                <small style='color:red;'> {{ form.non_field_errors }}</small>
+                  {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                        {{ message }}
+                    </li>
+                    {% endfor %}
+                </ul>
+              {% endif %}
                   {% for field in form %}
                 </small>
                   {% if field.name == 'username'%}
@@ -36,7 +46,7 @@
                   <div class="checkbox">
                     <input id="checkbox1" type="checkbox">
                     <label class="text-muted" for="checkbox1">Remember password</label>
-                  </div><a class="link" href="forget-password.html">Forgot password?</a>
+                  </div><a class="link" href="{%url 'password_reset'%}">Forgot password?</a>
                 </div>
                 <div class="form-group"><button class="btn btn-primary btn-block"  type="submit">Sign in</button></div>
                 <div class="login-social-title">                
@@ -58,5 +68,6 @@
       </div>
     </section>
     {%endblock%}
+
   
   

@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import SetPasswordForm
+
 
 
 class RegitrationForm(UserCreationForm):
@@ -49,3 +51,31 @@ class RegitrationForm(UserCreationForm):
             'password2', 
             ]
 
+class UserUpdateForm(forms.ModelForm):
+    first_name = forms.CharField(max_length=30,  required=False,help_text='')
+    last_name = forms.CharField(max_length=30, required=False, help_text='')
+    email = forms.EmailField(
+        max_length=254,
+        help_text='Enter a valid email address',
+        widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'Enter email address'
+    })
+        )
+        
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email', ]
+
+from django.contrib.auth.forms import PasswordResetForm
+
+class PasswordResetForm(PasswordResetForm):
+    def __init__(self, *args, **kwargs):
+        super(PasswordResetForm, self).__init__(*args, **kwargs)
+
+
+
+class SetPasswordForm(SetPasswordForm):
+    class Meta:
+        model = User
+        fields = ['new_password1', 'new_password2']

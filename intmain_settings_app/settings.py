@@ -38,12 +38,16 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'django.contrib.sites',
     # intmain apps
     "intmain_settings_app",
     "student_dashboard",
     "authentication",
     # third part apps
-    'crispy_forms'
+    "crispy_forms",
+    "six",
+    
+    
 ]
 
 MIDDLEWARE = [
@@ -146,6 +150,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # STATIC_ROOT = (os.path.join(SITE_ROOT, 'static_files/'))
 
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+SITE_ID = 1
 
 STATICFILES_DIRS = (os.path.join(SITE_ROOT, "static/"),)
 
@@ -162,4 +167,14 @@ LOGOUT_REDIRECT_URL = '/user-authentication/login/'
 
 # for better form rendering
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Emailing settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_FROM = 'ucode888@gmail.com'
+EMAIL_HOST_USER = 'ucode888@gmail.com'
+EMAIL_HOST_PASSWORD = 'nbyzsvdvjinobhjx'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+PASSWORD_RESET_TIMEOUT = 14400
 

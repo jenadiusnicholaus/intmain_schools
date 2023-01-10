@@ -1,9 +1,11 @@
  {% extends 'registration/base.html' %}
+ {%load static%}
  {%block contents%}
+
     <section>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-xl-5"><img class="bg-img-cover bg-center" src="../assets/images/login/3.jpg" alt="looginpage"></div>
+          <div class="col-xl-5"><img class="bg-img-cover bg-center" src="{% static 'assets/img/hero-img.svg' %}" alt="looginpage"></div>
           <div class="col-xl-7 p-0">    
             <div class="login-card">
              <form class="theme-form login-form" method="post">
@@ -48,7 +50,7 @@
                     <li><a href="https://www.instagram.com/login" target="_blank"><i data-feather="instagram"></i></a></li>
                   </ul>
                 </div>
-                <p>Don't have account?<a class="ms-2" href="">Create Account</a></p>
+                <p>Don't have account?<a class="ms-2" href="{% url 'register'%}">Create Account</a></p>
               </form>
             </div>
           </div>

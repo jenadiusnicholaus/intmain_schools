@@ -38,9 +38,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # intmain apps
     "intmain_settings_app",
     "student_dashboard",
     "authentication",
+    # third part apps
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -156,3 +159,7 @@ LOGIN_REDIRECT_URL = "/student-dashboard/"
 LOGIN_URL = '/user-authentication/login/'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/user-authentication/login/'
 LOGOUT_REDIRECT_URL = '/user-authentication/login/'
+
+# for better form rendering
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+

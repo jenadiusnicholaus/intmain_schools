@@ -44,8 +44,9 @@ INSTALLED_APPS = [
     "student_dashboard",
     "authentication",
     # third part apps
-    'crispy_forms',
-    "six"
+    "crispy_forms",
+    "six",
+    
     
 ]
 
@@ -166,9 +167,6 @@ LOGOUT_REDIRECT_URL = '/user-authentication/login/'
 
 # for better form rendering
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
-
-# nbyzsvdvjinobhjx
 
 # Emailing settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

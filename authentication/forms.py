@@ -49,3 +49,18 @@ class RegitrationForm(UserCreationForm):
             'password2', 
             ]
 
+class UserUpdateForm(forms.ModelForm):
+    first_name = forms.CharField(max_length=30,  required=False,help_text='')
+    last_name = forms.CharField(max_length=30, required=False, help_text='')
+    email = forms.EmailField(
+        max_length=254,
+        help_text='Enter a valid email address',
+        widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'Enter email address'
+    })
+        )
+        
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email', ]

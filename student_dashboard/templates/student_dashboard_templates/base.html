@@ -69,13 +69,12 @@
                                     </div>
                                 </li>
                                 
-                                <li class="text-center"> <a class="f-w-700" href="{%url 'userprofile'%}">My profile </a></li>
+                                <li class="text-start small"> <a class="f-w-700" href="{%url 'userprofile'%}"><i class="far fa-user p-1"></i>My profile </a></li>
+                                <li class="f-w-700 small"><a href="{% url 'logout'%}"><i class="p-1" data-feather="log-out"></i>Log out</a>
+                                </li>
                             </ul>
                         </li>
-                        <li class="onhover-dropdown p-0">
-                            <button class="btn btn-primary-light" type="button"><a href="{% url 'logout'%}"><i
-                                        data-feather="log-out"></i>Log out</a></button>
-                        </li>
+                        
                     </ul>
                 </div>
                 <div class="d-lg-none mobile-toggle pull-right w-auto"><i data-feather="more-horizontal"></i></div>

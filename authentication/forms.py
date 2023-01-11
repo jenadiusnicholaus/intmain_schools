@@ -78,6 +78,23 @@ class PasswordResetForm(PasswordResetForm):
 
 
 class SetPasswordForm(SetPasswordForm):
+    new_password1 =forms.CharField(
+        required=True,
+        label='New password',
+        help_text='Max-length:8 chars, not  smillar to username,strong one',
+        widget=forms.PasswordInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'Enter password'
+    }))
+
+    new_password2 =forms.CharField(
+        required=True,
+        label='Re-enter password',
+        help_text='Max-length:8 chars, not smillar to username,strong one',
+        widget=forms.PasswordInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'Re-nter password'
+    }))
     class Meta:
         model = User
         fields = ['new_password1', 'new_password2']

@@ -5,6 +5,7 @@ from . views import (
     activate,
     password_reset_request,
     passwordResetConfirm,
+    password_change,
     userProfile)
 
 urlpatterns = [
@@ -12,11 +13,13 @@ urlpatterns = [
     path('logout/', views.LogoutView.as_view(), name='logout', ),
     path("register/", RegisterView.as_view(), name="register"),
     path("userprofile", userProfile.as_view(), name="userprofile"),
+    # password urls
     path("password_reset", password_reset_request, name="password_reset"),
-
     path('reset/<uidb64>/<token>/',passwordResetConfirm, name='password_reset_confirm'),
     path('reset/done/',views.PasswordResetCompleteView.as_view(template_name='password/password_reset_complete.html'), name='password_reset_complete'),
-    # acruvate the account
+    path("password_change", password_change, name="password_change"),
+
+    # actvate the account url
     path('activate/<uidb64>/<token>', activate, name='activate'),
  
   

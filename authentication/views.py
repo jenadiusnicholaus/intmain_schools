@@ -14,6 +14,8 @@ from django.contrib.auth import get_user_model
 from .forms import PasswordResetForm, SetPasswordForm, singleUserProfileForm
 from django.db.models.query_utils import Q
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth.decorators import login_required
+
 
 
 
@@ -169,6 +171,23 @@ def passwordResetConfirm(request, uidb64, token):
     messages.error(request, 'Something went wrong, redirecting back to Homepage')
     return redirect("login")
 
+
+@login_required
+def password_change(request):
+    user = request.user
+    if request.method == 'POST':
+        form = SetPasswordForm(user, request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your password has been changed")
+            return redirect('login')
+        else:
+            for error in list(form.errors.values()):
+                messages.error(request, error)
+
+    form = SetPasswordForm(user)
+    return render(request, 'password/password_reset_confirm.html', {'form': form})
+
 class userProfile(View):
     def get(self, request, *args, **kwargs):
         # author_data = User.objects.get(pk=request.user)
@@ -203,7 +222,7 @@ class userProfile(View):
                 return redirect('userprofile')
             else:
                 messages.warning(self.request, 'form is invalid')
-                print(update_form_user.data, update_form_user_profile.data)
+            
                 return redirect('userprofile')
 
         except ObjectDoesNotExist:

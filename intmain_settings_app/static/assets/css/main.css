@@ -2719,3 +2719,11 @@ section {
 .login-button{
   color: var(--color-secondary);
 }
+
+.image-overlay {
+  background-color: rgb(230, 237, 232);
+  height: 20%;
+  border-radius: 20px;
+  padding: 20%;
+
+}

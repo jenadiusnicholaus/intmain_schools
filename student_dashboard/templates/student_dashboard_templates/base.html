@@ -53,19 +53,23 @@
                             <div class="mode"><i class="fa fa-moon"></i></div>
                         </li>
                         <li class="onhover-dropdown">
-                            <i class="far fa-user"></i>
-
+                                <img class="img-30 avatar-img rounded-circle border border-3 border-dark"
+                                    src="{%if request.user.user_profile.image == none  %}{% static 'assets/img/portfolio/intmain avatar.jfif'%}{%else%}{{request.user.user_profile.image.url}}{%endif%}" alt="avatar">
                         <ul class="chat-dropdown onhover-show-div"> 
                                 <li>
-                                    <div class="media"><img class="img-fluid rounded-circle me-3"
-                                            src="/static/dashboard_assets/assets/images/user/4.jpg" alt="">
-                                        <div class="media-body"><span>Hi {{user.username}}</span>
+                                    <div class="media d-flex align-items-center">
+                                        <div class="avatar avatar-xxl">
+                                            <img class="img-50 avatar-img rounded-circle border border-3 border-dark"
+                                            src="{%if request.user.user_profile.image == none  %}{% static 'assets/img/portfolio/intmain avatar.jfif'%}{%else%}{{request.user.user_profile.image.url}}{%endif%}" alt="avatar">
+                                        </div>
+                                        <div class="media-body d-flex align-items-center p-3">
+                                            <span class="d-flex align-items-center">  Hi {{user.username}}</span>
                                             <p class="f-12 light-font"></p>
                                         </div>
                                     </div>
                                 </li>
                                 
-                                <li class="text-center"> <a class="f-w-700" href="javascript:void(0)">My profile </a></li>
+                                <li class="text-center"> <a class="f-w-700" href="{%url 'userprofile'%}">My profile </a></li>
                             </ul>
                         </li>
                         <li class="onhover-dropdown p-0">

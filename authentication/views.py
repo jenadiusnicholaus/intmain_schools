@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.shortcuts import render
 from django.views import View
-from authentication.forms import PasswordResetForm, RegitrationForm, UserUpdateForm
+from authentication.forms import PasswordResetForm, usersForm,RegitrationForm, UserUpdateForm
 from django.shortcuts import render, redirect
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
@@ -11,8 +11,9 @@ from django.utils.encoding import force_bytes, force_str
 from .tokens import account_activation_token
 from django.contrib import messages
 from django.contrib.auth import get_user_model
-from .forms import PasswordResetForm, SetPasswordForm
+from .forms import PasswordResetForm, SetPasswordForm, singleUserProfileForm
 from django.db.models.query_utils import Q
+from django.core.exceptions import ObjectDoesNotExist
 
 
 
@@ -167,3 +168,46 @@ def passwordResetConfirm(request, uidb64, token):
 
     messages.error(request, 'Something went wrong, redirecting back to Homepage')
     return redirect("login")
+
+class userProfile(View):
+    def get(self, request, *args, **kwargs):
+        # author_data = User.objects.get(pk=request.user)
+    
+        update_form_user = usersForm(instance=self.request.user)
+        update_form_user_profile = singleUserProfileForm(
+            instance=self.request.user.user_profile)
+        context = {
+            # 'author_data': author_data,
+        
+            'user_form': update_form_user,
+            'profile_form': update_form_user_profile
+        }
+
+        return render(request, template_name="student_dashboard_templates/student_profile.html", context=context)
+
+    def post(self, request, *args, **kwargs):
+        try:
+            update_form_user = usersForm(
+                self.request.POST or None,
+                instance=self.request.user)
+            update_form_user_profile = singleUserProfileForm(
+                self.request.POST or None, self.request.FILES or None,
+                instance=self.request.user.user_profile)
+            if update_form_user.is_valid() and update_form_user_profile.is_valid():
+                user = update_form_user.save(True)
+                profile = update_form_user_profile.save(False)
+                profile.user = user
+                profile.save()
+                messages.success(
+                    self.request, ' your profile has been updated successfully')
+                return redirect('userprofile')
+            else:
+                messages.warning(self.request, 'form is invalid')
+                print(update_form_user.data, update_form_user_profile.data)
+                return redirect('userprofile')
+
+        except ObjectDoesNotExist:
+            messages.info(
+                self.request, 'Invalid user profile, try to register as a new user.')
+            return redirect('userprofile')
+

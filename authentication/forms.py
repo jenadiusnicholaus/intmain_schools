@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import SetPasswordForm
 
+from authentication.models import Profile
+
 
 
 class RegitrationForm(UserCreationForm):
@@ -79,3 +81,74 @@ class SetPasswordForm(SetPasswordForm):
     class Meta:
         model = User
         fields = ['new_password1', 'new_password2']
+
+class singleUserProfileForm(forms.ModelForm):
+    bio = forms.CharField(required=False, widget=forms.Textarea(attrs={
+        'class': 'form-control ',
+        'rows': "2",
+        'cols': "100",
+        'placeholder': 'Write your bio here...',
+
+    }))
+    about = forms.CharField(required=False, widget=forms.Textarea(attrs={
+        'class': 'form-control ',
+        'placeholder': 'Write your about here...',
+
+    }))
+    profession = forms.CharField(required=False, widget=forms.TextInput(attrs={
+        'class': 'form-control ',
+        'placeholder': 'Write your profession here...',
+    }))
+    country = forms.CharField(required=False, widget=forms.TextInput(attrs={
+        'class': 'form-control ',
+        'placeholder': 'Write your country name here...',
+    }))
+    facebook_link = forms.URLField(required=False, widget=forms.URLInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'Write your facebook link here...',
+    }))
+
+    linkedin_link = forms.URLField(required=False, widget=forms.URLInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'Write your linked link here...',
+    }))
+    tweeter_link = forms.URLField(required=False, widget=forms.URLInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'Write your tweeter link here...',
+    }))
+    github_link = forms.URLField(required=False,  widget=forms.URLInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'Write your github link here...',
+    }))
+    image = forms.FileField(required=False,  widget=forms.FileInput(attrs={
+        'class': 'form-control',
+
+    }))
+
+    class Meta:
+        model = Profile
+        fields = ('image', 'bio', 'profession', 'country', 'about', 'facebook_link', 'linkedin_link', 'tweeter_link',
+                  'github_link', 'career_goal')
+
+class usersForm(forms.ModelForm):
+    username = forms.CharField(required=False, widget=forms.TextInput(attrs={
+        'class': 'form-control ',
+        'placeholder': 'Write your username here...',
+    }))
+    email = forms.EmailField(required=False, widget=forms.EmailInput(attrs={
+        'class': 'form-control ',
+        'placeholder': 'Write your email here...',
+    }))
+    first_name = forms.CharField(required=False, widget=forms.TextInput(attrs={
+        'class': 'form-control ',
+        'placeholder': 'Write your first name here...',
+    }))
+
+    last_name = forms.CharField(required=False, widget=forms.TextInput(attrs={
+        'class': 'form-control ',
+        'placeholder': 'Write your last name here...',
+    }))
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'first_name', 'last_name')

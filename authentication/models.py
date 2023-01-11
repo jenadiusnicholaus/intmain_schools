@@ -14,7 +14,7 @@ class Profile(models.Model):
         return None
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user_profile')
     career_goal = models.TextField("Career gooal", max_length=600, default='', blank=True)
-    image = models.ImageField( upload_to=image_upload_to)
+    image = models.ImageField( upload_to=image_upload_to, default='intmain_avatar.png', blank=True)
 
     mobile = models.CharField(max_length=15, null=True, blank=True)
     country = models.CharField(max_length=20, null=True)

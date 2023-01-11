@@ -44,7 +44,7 @@ class RegisterView(View):
 
 def activateEmail(request, user, to_email):
     mail_subject = 'Activate your user account.'
-    message = render_to_string('email/activate_account_template.html', {
+    message = render_to_string('email/template_activate_account.html', {
         'user': user.username,
         'domain': get_current_site(request).domain,
         'uid': urlsafe_base64_encode(force_bytes(user.pk)),
@@ -190,14 +190,15 @@ def password_change(request):
 
 class userProfile(View):
     def get(self, request, *args, **kwargs):
-        # author_data = User.objects.get(pk=request.user)
-    
+        try:
+            user_profile_instance = self.request.user.user_profile
+        except:
+            user_profile_instance= None
+      
         update_form_user = usersForm(instance=self.request.user)
         update_form_user_profile = singleUserProfileForm(
             instance=self.request.user.user_profile)
         context = {
-            # 'author_data': author_data,
-        
             'user_form': update_form_user,
             'profile_form': update_form_user_profile
         }

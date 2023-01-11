@@ -1,5 +1,6 @@
 {% extends 'student_dashboard_templates/base.html'%}
 {% load crispy_forms_tags %}
+{% load static%}
 {%block contents%}
     <div class="page-body">
       <div class="container-fluid">
@@ -57,11 +58,11 @@
                         <div class="media">
                             <div class="avatar avatar-xxl">
                                 <img class="img-70 avatar-img rounded-circle border border-3 border-dark"
-                                    src="{{request.user.user_profile.image.url}}" alt="avatar">
+                                    src="{% if request.user.user_profile != none %}{{request.user.user_profile.image.url}}{%else%}{% static 'assets/img/intmain_avatar.png'%}{%endif%}" alt="avatar">
                             </div>
                           <div class="media-body">
                             <h3 class="mb-1 f-20 txt-primary">{{request.user.username}}</h3>
-                            <p class="f-12"> {%if request.user.user_profile.profession == none %} Add your professional{%else%}{{request.user.user_profile.profession}}{%endif%}</p>
+                            <p class="f-12">{% if request.user.user_profile == none %} {%if request.user.user_profile.profession == none %} Add your professional{%else%}{{request.user.user_profile.profession}}{%endif%}{%endif%}</p>
                           </div>
                         </div>
                       </div>
@@ -78,8 +79,6 @@
                     <div class="mb-3">
                      {{ user_form.email|as_crispy_field}}
                     </div>
-                   
-              
                 </div>
               </div>
             </div>
@@ -99,23 +98,19 @@
                                     src="{{  profile_form.instance.image.url }}" alt="">
                             </div>
                             {%endif%}
-                            <div class="col-md-9">
+                            <div class="col-md-10">
                                 {{ profile_form.image}}
                             </div>
                         </div>
                     </div>
                     <hr>
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                       <div class="mb-3">
                         {{ profile_form.profession|as_crispy_field}}
                       </div>
                     </div>
-                    <div class="col-sm-6 col-md-3">
-                      <div class="mb-3">
-                        {{ profile_form.profession|as_crispy_field}}
-                      </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
+                   
+                    <div class="col-sm-6 col-md-6">
                       <div class="mb-3">
                         {{ profile_form.country|as_crispy_field}}
                       </div>
@@ -161,8 +156,5 @@
         </form>
         </div>
       </div>
-    
-
- 
   </div>
 {%endblock%}

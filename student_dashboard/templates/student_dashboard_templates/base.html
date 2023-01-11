@@ -54,13 +54,13 @@
                         </li>
                         <li class="onhover-dropdown">
                                 <img class="img-30 avatar-img rounded-circle border border-3 border-dark"
-                                    src="{%if request.user.user_profile.image == none  %}{% static 'assets/img/portfolio/intmain avatar.jfif'%}{%else%}{{request.user.user_profile.image.url}}{%endif%}" alt="avatar">
+                                    src="{%if request.user.user_profile.image == none  %}{% static 'assets/img/intmain_avatar.png'%}{%else%}{{request.user.user_profile.image.url}}{%endif%}" alt="avatar">
                         <ul class="chat-dropdown onhover-show-div"> 
                                 <li>
                                     <div class="media d-flex align-items-center">
                                         <div class="avatar avatar-xxl">
                                             <img class="img-50 avatar-img rounded-circle border border-3 border-dark"
-                                            src="{%if request.user.user_profile.image == none  %}{% static 'assets/img/portfolio/intmain avatar.jfif'%}{%else%}{{request.user.user_profile.image.url}}{%endif%}" alt="avatar">
+                                            src="{%if request.user.user_profile.image == none  %}{% static 'assets/img/intmain_avatar.png'%}{%else%}{{request.user.user_profile.image.url}}{%endif%}" alt="avatar">
                                         </div>
                                         <div class="media-body d-flex align-items-center p-3">
                                             <span class="d-flex align-items-center">  Hi {{user.username}}</span>

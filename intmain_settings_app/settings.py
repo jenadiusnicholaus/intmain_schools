@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os
 from pathlib import Path
+from decouple import config
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -87,10 +89,10 @@ WSGI_APPLICATION = "intmain_settings_app.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "intmaindb",
+        "NAME": config('DATABASE_NAME'),
         # "USER": "intmainadmin",
-        "USER": "postgres",
-        "PASSWORD": "intmain2023",
+        "USER": config('DATABASE_USER'),
+        "PASSWORD": config('DATABASE_PASSWORD'),
         "HOST": "localhost",
         "PORT": "",
     }
@@ -169,12 +171,11 @@ LOGOUT_REDIRECT_URL = '/user-authentication/login/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Emailing settings
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_FROM = 'ucode888@gmail.com'
-EMAIL_HOST_USER = 'ucode888@gmail.com'
-EMAIL_HOST_PASSWORD = 'nbyzsvdvjinobhjx'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-PASSWORD_RESET_TIMEOUT = 14400
+EMAIL_BACKEND = config('EMAIL_BACKEND')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_FROM = config('EMAIL_FROM')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+PASSWORD_RESET_TIMEOUT=14400
 

@@ -53,14 +53,24 @@
                             <div class="mode"><i class="fa fa-moon"></i></div>
                         </li>
                         <li class="onhover-dropdown">
-                                <img class="img-30 avatar-img rounded-circle border border-3 border-dark"
-                                    src="{%if request.user.user_profile.image == none  %}{% static 'assets/img/intmain_avatar.png'%}{%else%}{{request.user.user_profile.image.url}}{%endif%}" alt="avatar">
+                        {%if request.user.user_profile.image %}
+                            <img class="img-30 avatar-img rounded-circle border border-3 border-dark"
+                            src="{{ request.user.user_profile.image.url}}" alt="avatar">
+                        {%else%}
+                            <img class="img-30 avatar-img rounded-circle border border-3 border-dark"
+                            src="{% static 'assets/img/intmain_avatar.png'%}" alt="avatar">
+                        {%endif%}
                         <ul class="chat-dropdown onhover-show-div"> 
                                 <li>
                                     <div class="media d-flex align-items-center">
                                         <div class="avatar avatar-xxl">
-                                            <img class="img-50 avatar-img rounded-circle border border-3 border-dark"
-                                            src="{%if request.user.user_profile.image == none  %}{% static 'assets/img/intmain_avatar.png'%}{%else%}{{request.user.user_profile.image.url}}{%endif%}" alt="avatar">
+                                        {%if request.user.user_profile.image %}
+                                            <img class="img-30 avatar-img rounded-circle border border-3 border-dark"
+                                            src="{{ request.user.user_profile.image.url}}" alt="avatar">
+                                        {%else%}
+                                            <img class="img-30 avatar-img rounded-circle border border-3 border-dark"
+                                            src="{% static 'assets/img/intmain_avatar.png'%}" alt="avatar">
+                                        {%endif%}
                                         </div>
                                         <div class="media-body d-flex align-items-center p-3">
                                             <span class="d-flex align-items-center">  Hi {{user.username}}</span>

@@ -18,30 +18,6 @@ from django.contrib.auth.decorators import login_required
 
 
 
-
-# Sign Up View
-class RegisterView(View):
-    
-    def get(self, request,*args, **kwargs ):
-        form = RegitrationForm()
-        context = {'form': form}
-        return render(request, 'registration/register.html', context)
-
-    def post(self, request,*args, **kwargs ):
-        if request.method == 'POST':
-            form = RegitrationForm(request.POST)
-            if form.is_valid():
-                user = form.save(commit=False)
-                user.is_active = False
-                form.save()
-                activateEmail(request, user, form.cleaned_data.get('email'))
-                return redirect('/user-authentication/login/')
-        else:
-            form = RegitrationForm()
-        context = {'form': form}
-        return render(request, 'registration/register.html', context)
-
-
 def activateEmail(request, user, to_email):
     mail_subject = 'Activate your user account.'
     message = render_to_string('email/template_activate_account.html', {
@@ -57,6 +33,36 @@ def activateEmail(request, user, to_email):
             received activation link to confirm and complete the registration. Note: Check your spam folder, Just in case you don\'t see the eamil')
     else:
         messages.error(request, f'Problem sending confirmation email to {to_email}, check if you typed it correctly.')
+
+# Sign Up View
+class RegisterView(View):
+    
+    def get(self, request,*args, **kwargs ):
+        form = RegitrationForm()
+        context = {'form': form}
+        return render(request, 'registration/register.html', context)
+
+    def post(self, request,*args, **kwargs ):
+        if request.method == 'POST':
+            form = RegitrationForm(request.POST)
+            if form.is_valid():
+                try:
+                    user = form.save(commit=False)
+                    user.is_active = False
+                    form.save()
+                    activateEmail(request, user, form.cleaned_data.get('email'))
+                except:
+                    # activate the user if not sending the email
+                    user = form.save(commit=False)
+                    user.is_active = True
+                    form.save()
+                return redirect('/user-authentication/login/')
+        else:
+            form = RegitrationForm()
+        context = {'form': form}
+        return render(request, 'registration/register.html', context)
+
+
 
 def activate(request, uidb64, token):
     User = get_user_model()
@@ -129,7 +135,6 @@ def password_reset_request(request):
                             We've emailed you instructions for setting your password, if an account exists with the email you entered. 
                             You should receive them shortly.<br>If you don't receive an email, please make sure you've entered the address 
                             you registered with, and check your spam folder.
-                        
                         """
                     )
                 else:
@@ -197,7 +202,7 @@ class userProfile(View):
       
         update_form_user = usersForm(instance=self.request.user)
         update_form_user_profile = singleUserProfileForm(
-            instance=self.request.user.user_profile)
+            instance= user_profile_instance)
         context = {
             'user_form': update_form_user,
             'profile_form': update_form_user_profile
@@ -207,27 +212,30 @@ class userProfile(View):
 
     def post(self, request, *args, **kwargs):
         try:
-            update_form_user = usersForm(
-                self.request.POST or None,
-                instance=self.request.user)
-            update_form_user_profile = singleUserProfileForm(
-                self.request.POST or None, self.request.FILES or None,
-                instance=self.request.user.user_profile)
-            if update_form_user.is_valid() and update_form_user_profile.is_valid():
-                user = update_form_user.save(True)
-                profile = update_form_user_profile.save(False)
-                profile.user = user
-                profile.save()
-                messages.success(
-                    self.request, ' your profile has been updated successfully')
-                return redirect('userprofile')
-            else:
-                messages.warning(self.request, 'form is invalid')
-            
-                return redirect('userprofile')
+            user_profile_instance = self.request.user.user_profile
+        except:
+            user_profile_instance  = None
 
-        except ObjectDoesNotExist:
-            messages.info(
-                self.request, 'Invalid user profile, try to register as a new user.')
+        update_form_user = usersForm(
+            self.request.POST or None,
+            instance=self.request.user)
+        update_form_user_profile = singleUserProfileForm(
+            self.request.POST or None, self.request.FILES or None,
+            instance= user_profile_instance)
+        if update_form_user.is_valid() and update_form_user_profile.is_valid():
+            user = update_form_user.save(True)
+            profile = update_form_user_profile.save(False)
+            if profile is None:
+                profile.user = user
+            profile.user = user
+            profile.save()
+            messages.success(
+                self.request, ' your profile has been updated successfully')
             return redirect('userprofile')
+        else:
+            messages.warning(self.request, 'form is invalid')
+        
+            return redirect('userprofile')
+
+
 

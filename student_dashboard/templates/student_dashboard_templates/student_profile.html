@@ -57,9 +57,15 @@
                       <div class="profile-title">
                         <div class="media">
                             <div class="avatar avatar-xxl">
-                                <img class="img-70 avatar-img rounded-circle border border-3 border-dark"
-                                    src="{% if request.user.user_profile != none %}{{request.user.user_profile.image.url}}{%else%}{% static 'assets/img/intmain_avatar.png'%}{%endif%}" alt="avatar">
+                            {%if request.user.user_profile.image %}
+                                <img class="img-50 avatar-img rounded-circle border border-3 border-dark"
+                                src="{{ request.user.user_profile.image.url}}" alt="avatar">
+                            {%else%}
+                                <img class="img-50 avatar-img rounded-circle border border-3 border-dark"
+                                src="{% static 'assets/img/intmain_avatar.png'%}" alt="avatar">
+                            {%endif%}
                             </div>
+                   
                           <div class="media-body">
                             <h3 class="mb-1 f-20 txt-primary">{{request.user.username}}</h3>
                             <p class="f-12">{% if request.user.user_profile == none %} {%if request.user.user_profile.profession == none %} Add your professional{%else%}{{request.user.user_profile.profession}}{%endif%}{%endif%}</p>
@@ -92,14 +98,8 @@
                   <div class="row">
                     <div class="col-md-12">
                         <div class="row rounded bg-lightt" >
-                            {% if profile_form.instance.image %}
-                            <div class="col-md-2">
-                                <img style="height:30px; width:30px; border-radius: 100%;margin-top:10px;overflow: hidden;"
-                                    src="{{  profile_form.instance.image.url }}" alt="">
-                            </div>
-                            {%endif%}
-                            <div class="col-md-10">
-                                {{ profile_form.image}}
+                            <div class="col-md-12 ">
+                              <input type="file" name="image"  data-bs-toggle="tooltip" data-bs-placement="top" title="You can't upload the image for now" class="form-control" id="id_image" disabled>
                             </div>
                         </div>
                     </div>

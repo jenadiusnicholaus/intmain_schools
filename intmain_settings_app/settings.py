@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-6$v!68-+90%xhcb2^q6+u*j6)a(m#h74%7b=xua+^c&j*#tyj)"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["147.182.255.95", "127.0.0.1"]
 
@@ -47,7 +47,11 @@ INSTALLED_APPS = [
     "authentication",
     # third part apps
     "crispy_forms",
+    "intmain_main_app",
     "six",
+    "imagekit",
+    "ckeditor_uploader",
+    "ckeditor", 
     
     
 ]
@@ -90,7 +94,7 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": config('DATABASE_NAME'),
-        # "USER": "intmainadmin",
+        "USER": "intmainadmin",
         "USER": config('DATABASE_USER'),
         "PASSWORD": config('DATABASE_PASSWORD'),
         "HOST": "localhost",
@@ -146,6 +150,8 @@ MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
@@ -178,4 +184,27 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 PASSWORD_RESET_TIMEOUT=14400
+
+
+
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        # 'height': 300,
+        # 'width': 300,
+        # 'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter',
+             'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    }
+}
 

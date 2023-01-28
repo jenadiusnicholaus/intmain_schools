@@ -42,5 +42,29 @@
 <script src="{% static 'dashboard_assets/assets/js/script.js'%}"></script>
  <script src="{% static 'dashboard_assets/assets/js/jquery.dataTables.min.js'%}"></script>
 <script src="{% static 'dashboard_assets/assets/js/datatable.custom.js'%}"></script>
+
+{% comment %} <script src="{% static 'mdeditor/js/jquery.min.js' %}"></script>
+<script src="{% static 'mdeditor/js/editormd.min.js' %}"></script>
+<script src="{% static 'mdeditor/js/lib/marked.min.js' %}"></script>
+<script src="{% static 'mdeditor/js/lib/prettify.min.js' %}"></script>
+<script src="{% static 'mdeditor/js/lib/raphael.min.js' %}"></script>
+<script src="{% static 'mdeditor/js/lib/underscore.min.js' %}"></script>
+<script src="{% static 'mdeditor/js/lib/sequence-diagram.min.js' %}"></script>
+<script src="{% static 'mdeditor/js/lib/flowchart.min.js' %}"></script>
+<script src="{% static 'mdeditor/js/lib/jquery.flowchart.min.js' %}"></script>
+<script>
+  $(function () {
+      // content is the id of the <tag> you want to be render.
+      // Refer to the link of the template shared with this answer.
+      editormd.markdownToHTML("content", {
+          emoji           : true,
+          taskList        : true,
+          tex             : true,  
+          flowChart       : true,  
+          sequenceDiagram : true,  
+      });
+  }) {% endcomment %}
+
+</script>
 <!-- login js-->
 <!-- Plugin used-->

@@ -1,9 +1,9 @@
 import imp
 from django import forms
-from .models import Notes
+from .models import Activity
 
 
-class ContentNotesForm(forms.ModelForm):
+class ContentActivityForm(forms.ModelForm):
     content_status_choices = (
         ('draft', 'Draft'),
         ('send_for_approval', 'Send For Approval'),
@@ -11,7 +11,7 @@ class ContentNotesForm(forms.ModelForm):
     status = forms.ChoiceField()
 
     class Meta:
-        model = Notes
+        model = Activity
         fields = '__all__'
 
     def __init__(self, *args, **kwargs):
@@ -19,7 +19,7 @@ class ContentNotesForm(forms.ModelForm):
         self.fields['status'].choices = self.content_status_choices
 
 
-class SupervisorNotesForm(forms.ModelForm):
+class SupervisorActivityForm(forms.ModelForm):
     supervisor_status_choices = (
         ('return_for_amendment', 'Return For Amendment'),
         ('approved', 'Approve'),
@@ -27,7 +27,7 @@ class SupervisorNotesForm(forms.ModelForm):
     status = forms.ChoiceField()
 
     class Meta:
-        model = Notes
+        model = Activity
         fields = '__all__'
 
     def __init__(self, *args, **kwargs):
@@ -35,16 +35,17 @@ class SupervisorNotesForm(forms.ModelForm):
         self.fields['status'].choices = self.supervisor_status_choices
 
 
-class DefaultNotesForm(forms.ModelForm):
+class DefaultActivityForm(forms.ModelForm):
     status_choices = (
         ('invalid_status', 'Invalid Status'),
     )
     status = forms.ChoiceField()
 
     class Meta:
-        model = Notes
+        model = Activity
         fields = '__all__'
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['status'].choices = self.status_choices
+

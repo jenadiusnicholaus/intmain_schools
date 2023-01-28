@@ -10,6 +10,7 @@ urlpatterns = [
     path("student-dashboard/", include("student_dashboard.urls")),
     path("user-authentication/", include("authentication.urls")),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('mdeditor/', include('mdeditor.urls'))
 
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

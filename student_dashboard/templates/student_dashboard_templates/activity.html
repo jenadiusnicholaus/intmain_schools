@@ -1,0 +1,216 @@
+{%extends 'student_dashboard_templates/base.html'%}
+{% load markdownify %}
+
+{% block contents%}
+<div class="page-body">
+    <div class="container-fluid">
+      <div class="page-header">
+        <div class="row">
+          <div class="col-sm-6">
+            <h3>Module: {{topic_details.module_week.module.module_name}}</h3>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Activity: {{topic_details.topic_name}}</a></li>
+              {% comment %} <li class="breadcrumb-item">Learning</li>
+              <li class="breadcrumb-item active">Detailed Course</li> {% endcomment %}
+            </ol>
+          </div>
+          <div class="col-sm-6">
+            <!-- Bookmark Start-->
+            <div class="bookmark">
+              <ul>
+                <li><a href="javascript:void(0)" data-container="body" data-bs-toggle="popover" data-placement="top" title="" data-original-title="Tables"><i data-feather="inbox"></i></a></li>
+                <li><a href="javascript:void(0)" data-container="body" data-bs-toggle="popover" data-placement="top" title="" data-original-title="Chat"><i data-feather="message-square"></i></a></li>
+                <li><a href="javascript:void(0)" data-container="body" data-bs-toggle="popover" data-placement="top" title="" data-original-title="Icons"><i data-feather="command"></i></a></li>
+                <li><a href="javascript:void(0)" data-container="body" data-bs-toggle="popover" data-placement="top" title="" data-original-title="Learning"><i data-feather="layers"></i></a></li>
+                <li><a href="javascript:void(0)"><i class="bookmark-search" data-feather="star"></i></a>
+                  <form class="form-inline search-form">
+                    <div class="form-group form-control-search">
+                      <input type="text" placeholder="Search..">
+                    </div>
+                  </form>
+                </li>
+              </ul>
+            </div>
+            <!-- Bookmark Ends-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Container-fluid starts-->
+    <div class="container-fluid">
+      <div class="row learning-block">
+        <div class="col-xl-9 xl-60 box-col-8">                        
+          <div class="blog-single">
+            <div class="blog-box blog-details">
+              <div class="card">
+                <div class="card-body">
+                  <div class="blog-details">
+                    <ul class="blog-social">
+                      <li class="digits">{{topic_details.created_at}}</li>
+                      <li><i class="icofont icofont-user"></i>{{topic_details.module_week.author}}</li>
+                      {% comment %} <li class="digits"><i class="icofont icofont-thumbs-up"></i>02<span>Hits</span></li>
+                      <li class="digits"><i class="icofont icofont-ui-chat"></i>598 Comments</li> {% endcomment %}
+                    </ul>
+                   
+                    <div class="single-blog-content-top">
+                    {% for activity in topic_details.activity_set.all%}
+                     {{activity.Activity|markdownify}}
+                     {%endfor%}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% comment %} <div class="card comment-box">
+              <div class="card-body">
+                <h4>Comment                             </h4>
+                <ul>
+                  <li>
+                    <div class="media align-self-center"><img class="align-self-center" src="../assets/images/blog/comment.jpg" alt="Generic placeholder image">
+                      <div class="media-body">
+                        <div class="row">
+                          <div class="col-md-4 xl-100"><a href="user-profile.html">
+                              <h6 class="mt-0">Jolio Mark<span> ( Designer )</span></h6></a></div>
+                          <div class="col-md-8 xl-100">
+                            <ul class="comment-social learning-comment">
+                              <li class="digits"><i class="icofont icofont-thumbs-up"></i>02 Hits</li>
+                              <li class="digits"><i class="icofont icofont-ui-chat"></i>598 Comments</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <ul>
+                      <li>
+                        <div class="media"><img class="align-self-center" src="../assets/images/blog/9.jpg" alt="Generic placeholder image">
+                          <div class="media-body">
+                            <div class="row">
+                              <div class="col-xl-12"><a href="user-profile.html">
+                                  <h6 class="mt-0">Jolio Mark<span> ( Designer )</span></h6></a></div>
+                            </div>
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div class="media"><img class="align-self-center" src="../assets/images/blog/4.jpg" alt="Generic placeholder image">
+                      <div class="media-body">
+                        <div class="row">
+                          <div class="col-md-4 xl-100"><a href="user-profile.html">
+                              <h6 class="mt-0">Jolio Mark<span> ( Designer )</span></h6></a></div>
+                          <div class="col-md-8 xl-100">
+                            <ul class="comment-social learning-comment">
+                              <li class="digits"><i class="icofont icofont-thumbs-up"></i>02 Hits</li>
+                              <li class="digits"><i class="icofont icofont-ui-chat"></i>598 Comments</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div> {% endcomment %}
+          </div>
+        </div>
+        <div class="col-xl-3 xl-40">
+          <div class="job-sidebar"><a class="btn btn-primary job-toggle" href="javascript:void(0)">learning filter</a>
+            <div class="job-left-aside custom-scrollbar custom-scrollbar">
+              <div class="default-according style-1 faq-accordion job-accordion" id="accordionoc">
+                <div class="row">
+                  <div class="col-xl-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="mb-0 p-0">
+                          <button class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#collapseicon" aria-expanded="true" aria-controls="collapseicon">Find Course</button>
+                        </h5>
+                      </div>
+                      <div class="collapse show" id="collapseicon" aria-labelledby="collapseicon" data-bs-parent="#accordion">
+                        <div class="card-body filter-cards-view animate-chk">
+                          <div class="job-filter">
+                            <div class="faq-form">
+                              <input class="form-control" type="text" placeholder="Search.."><i class="search-icon" data-feather="search"></i>
+                            </div>
+                          </div>
+                         
+                          <button class="btn btn-primary text-center" type="button">Submit Activity</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-12">
+                  
+                  </div>
+                  <div class="col-xl-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="mb-0 p-0">
+                          <button class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#collapseicon2" aria-expanded="true" aria-controls="collapseicon2">Upcoming Courses</button>
+                        </h5>
+                      </div>
+                      <div class="collapse show" id="collapseicon2" aria-labelledby="collapseicon2" data-bs-parent="#accordion">
+                        <div class="upcoming-course card-body">
+                          <div class="media">
+                            <div class="media-body"><span class="f-w-600">UX Development</span>
+                              <h6>Course By <a href="#"> Lorem ipsum</a></h6>
+                              <ul class="rating">
+                                <li><i class="fa fa-star font-warning"></i></li>
+                                <li><i class="fa fa-star font-warning"></i></li>
+                                <li><i class="fa fa-star font-warning"></i></li>
+                                <li><i class="fa fa-star font-warning"></i></li>
+                                <li><i class="fa fa-star-half-o font-warning"></i></li>
+                              </ul>
+                            </div>
+                            <div>
+                              <h5 class="mb-0 p-0 font-primary">18</h5><span class="d-block">Dec</span>
+                            </div>
+                          </div>
+                          <div class="media">
+                            <div class="media-body"><span class="f-w-600">Business Analyst</span>
+                              <h6>Course By <a href="#">Lorem ipsum </a></h6>
+                              <ul class="rating">
+                                <li><i class="fa fa-star font-warning"></i></li>
+                                <li><i class="fa fa-star font-warning"></i></li>
+                                <li><i class="fa fa-star font-warning"></i></li>
+                                <li><i class="fa fa-star font-warning"></i></li>
+                                <li><i class="fa fa-star-half-o font-warning"></i></li>
+                              </ul>
+                            </div>
+                            <div>
+                              <h5 class="mb-0 p-0 font-primary">28</h5><span class="d-block">Dec</span>
+                            </div>
+                          </div>
+                          <div class="media">
+                            <div class="media-body"><span class="f-w-600">Web Development</span>
+                              <h6>Course By <a href="#">Lorem ipsum </a></h6>
+                              <ul class="rating">
+                                <li><i class="fa fa-star font-warning"></i></li>
+                                <li><i class="fa fa-star font-warning"></i></li>
+                                <li><i class="fa fa-star font-warning"></i></li>
+                                <li><i class="fa fa-star font-warning"></i></li>
+                                <li><i class="fa fa-star-half-o font-warning"></i></li>
+                              </ul>
+                            </div>
+                            <div>
+                              <h5 class="mb-0 p-0 font-primary">5</h5><span class="d-block">Jan                         </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{%endblock%}

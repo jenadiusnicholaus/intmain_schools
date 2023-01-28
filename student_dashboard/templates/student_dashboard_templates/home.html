@@ -1,9 +1,223 @@
 {% extends 'student_dashboard_templates/base.html'%}
-
+{% load markdownify %}
 {% block contents %}
-<div class="page-body">
-    <!-- Container-fluid starts-->
 
-    <!-- Container-fluid Ends-->
-</div>
+    <div class="page-body">
+
+        <div class= "row">
+            <div class="col-xl-12 col-md-6 box-col-6 des-xl-50">
+                <div class="card profile-greeting">
+                  <div class="card-header">
+                    <div class="header-top">
+                      <div class="setting-list bg-primary position-unset">
+                        <ul class="list-unstyled setting-option">
+                          <li>
+                            <div class="setting-white"><i class="icon-settings"></i></div>
+                          </li>
+                          <li><i class="view-html fa fa-code font-white"></i></li>
+                          <li><i class="icofont icofont-maximize full-card font-white"></i></li>
+                          <li><i class="icofont icofont-minus minimize-card font-white"></i></li>
+                          <li><i class="icofont icofont-refresh reload-card font-white"></i></li>
+                          <li><i class="icofont icofont-error close-card font-white"> </i></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body text-center p-t-0">
+                    <h3 class="font-primary" style="color: blue;">Wellcome Back, {{request.user.username}}!</h3>
+                    <p class="font-primary">Welcome to the viho Family! we are glad that you are visite this dashboard. we will be happy to help you grow your business.</p>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                  </div>
+                  <div class="confetti">
+                    <div class="confetti-piece"></div>
+                    <div class="confetti-piece"></div>
+                    <div class="confetti-piece"></div>
+                    <div class="confetti-piece"></div>
+                    <div class="confetti-piece"></div>
+                    <div class="confetti-piece"></div>
+                    <div class="confetti-piece"></div>
+                    <div class="confetti-piece"></div>
+                    <div class="confetti-piece"></div>
+                    <div class="confetti-piece"></div>
+                    <div class="confetti-piece"></div>
+                    <div class="confetti-piece"></div>
+                    <div class="confetti-piece"></div>
+                    <div class="code-box-copy">
+                      <button class="code-box-copy__btn btn-clipboard" data-clipboard-target="#profile-greeting" title="Copy"><i class="icofont icofont-copy-alt"></i></button>
+                      <pre class="language-html"><code class=" language-html" id="profile-greeting">                                     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>card profile-greeting<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> 
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>card-header<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>header-top<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>setting-list bg-primary<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>list-unstyled setting-option<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>setting-white<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>icon-settings<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>view-html fa fa-code font-white<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>icofont icofont-maximize full-card font-white<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>icofont icofont-minus minimize-card font-white<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>icofont icofont-refresh reload-card font-white<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>icofont icofont-error close-card font-white<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>card-body text-center<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>font-light<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Wellcome Back, John!!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Lorem ipsum is simply dummy text of the printing and typesetting industry.Lorem ipsum has been<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn btn-light<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Update <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="col-sm-12 col-lg-12">
+            
+            {%for module in modules%}
+            <div class="card">
+           
+              <div class="card-header pb-0">
+                <h5>Module: {{module.module_name}}</h5>{{module.module_description|markdownify}}</span>
+              </div>
+              <div class="card-body">
+                <div class="default-according" id="accordionicon">
+                {% for week in module.module_week.all%}
+                  <div class="card">
+                    <div class="card-header bg-primary" id="heading11">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link text-white" data-bs-toggle="collapse" data-bs-target="#collapse11{{week.id}}" aria-expanded="true" aria-controls="collapse11"><i class="icofont icofont-briefcase-alt-2"></i>Week No: <span>{{week.week_number}}</span></button>
+                      </h5>
+                    </div>
+                    <div class="collapse show" id="collapse11{{week.id}}" aria-labelledby="headingOne" data-bs-parent="#accordionicon">
+                      <div class="card-body">
+                        
+                        <div class="col-xl-12 col-md-12 box-col-12">
+                            <div>
+                              <div class="card card-activity">
+                                <div class="card-header pb-0 d-flex justify-content-between align-items-center">
+                                  <h5 class="text-uppercase">Activities</h5>
+                                  <div class="setting-list">
+                                    <ul class="list-unstyled setting-option">
+                                      <li>
+                                        <div class="setting-primary"><i class="icon-settings"></i></div>
+                                      </li>
+                                      <li><i class="view-html fa fa-code font-primary"></i></li>
+                                      <li><i class="icofont icofont-maximize full-card font-primary"></i></li>
+                                      <li><i class="icofont icofont-minus minimize-card font-primary"></i></li>
+                                      <li><i class="icofont icofont-refresh reload-card font-primary"></i></li>
+                                      <li><i class="icofont icofont-error close-card font-primary"></i></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                                <div class="card-body">
+                                  <ul class="crm-activity">
+                                    {% for topic in  week.related_topics.all%}
+                                    <li class="media"><span class="me-3 font-{% if loop.odd %}secondary{% else %}primary{%endif%}">{{topic.topic_name_first_letter}}</span>
+                                      <div class="align-self-center media-body">
+                                        <h6 class="mt-0">{{topic.topic_name}}.</h6>
+                                        <ul class="dates">
+                                          <li>25 July 2017</li>
+                                          <li>20 hours ago</li>
+                                        </ul>
+                                      </div>
+                                      <a href="{%url "topic_details" topic.slug%}" class="btn btn-square btn-outline-secondary btn-xs" type="button" data-bs-original-title="" title="">View Activity</a>
+
+                                    </li>
+                                    {%endfor%}
+                                    {% comment %} <li class="media"><span class="me-3 font-secondary">C</span>
+                                      <div class="align-self-center media-body">
+                                        <h6 class="mt-0">Contrary to popular belief. </h6>
+                                        <ul class="dates">
+                                          <li>25 July 2017</li>
+                                          <li>20 hours ago      </li>
+                                        </ul>
+                                      </div>
+                                      <button class="btn btn-square btn-outline-secondary btn-xs" type="button" data-bs-original-title="" title="">Secondary Button</button>
+
+                                    </li>
+                                    <li class="media"><span class="me-3 font-primaryfont-primary">E</span>
+                                      <div class="align-self-center media-body">
+                                        <h6 class="mt-0">Established fact that a reader.</h6>
+                                        <ul class="dates">
+                                          <li>25 July 2017</li>
+                                          <li>20 hours ago</li>
+                                        </ul>
+                                      </div>
+                                      <button class="btn btn-square btn-outline-secondary btn-xs" type="button" data-bs-original-title="" title="">Secondary Button</button>
+
+                                    </li>
+                                    <li class="media"><span class="me-3 font-secondary">H</span>
+                                      <div class="align-self-center media-body">
+                                        <h6 class="mt-0">H-Code - A premium portfolio.</h6>
+                                        <ul class="dates">
+                                          <li>25 July 2017</li>
+                                          <li>20 hours ago </li>
+                                        </ul>
+                                      </div>
+                                      <button class="btn btn-square btn-outline-secondary btn-xs" type="button" data-bs-original-title="" title="">Secondary Button</button>
+
+                                    </li>
+                                    <li class="media"><span class="me-3 font-primary">T</span>
+                                      <div class="align-self-center media-body">
+                                        <h6 class="mt-0">There isn't any hidden.</h6>
+                                        <ul class="dates">
+                                          <li>25 July 2017</li>
+                                          <li>20 hours ago</li>
+                                        </ul>
+                                      </div>
+                                      <button class="btn btn-square btn-outline-secondary btn-xs" type="button" data-bs-original-title="" title="">Secondary Button</button>
+                                    </li>
+                                    <li class="media"> 
+                                      <div class="align-self-center media-body d-flex bd-highlight">
+                                        <ul class="dates">
+                                          <li>25 July 2017</li>
+                                          <li>20 hours ago</li>
+                                        </ul>
+                                      </div>
+                                    </li> {% endcomment %}
+                                  </ul>
+                                  <div class="code-box-copy">
+                                    <button class="code-box-copy__btn btn-clipboard" data-clipboard-target="#recent-activity" title="" data-bs-original-title="Copy" aria-label="Copy"><i class="icofont icofont-copy-alt"></i></button>
+                                    
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    
+                    </div>
+                    </div>
+                  </div>
+                  {%endfor%}
+                  {% comment %} <div class="card">
+                    <div class="card-header bg-primary" id="heading22">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-white" data-bs-toggle="collapse" data-bs-target="#collapse22" aria-expanded="false" aria-controls="collapse22"><i class="icofont icofont-support"></i>Collapsible Group Item #<span>2</span></button>
+                      </h5>
+                    </div>
+                    <div class="collapse" id="collapse22" aria-labelledby="headingeight" data-bs-parent="#accordionicon">
+                      <div class="card-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header bg-primary" id="heading33">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-white" data-bs-toggle="collapse" data-bs-target="#collapse44" aria-expanded="false" aria-controls="collapse44"><i class="icofont icofont-tasks-alt"></i>Collapsible Group Item #<span>3</span></button>
+                      </h5>
+                    </div>
+                    <div class="collapse" id="collapse44" data-bs-parent="#accordionicon">
+                      <div class="card-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+                    </div>
+                  </div> {% endcomment %}
+                </div>
+              </div>
+           
+            </div>
+            {% endfor %}
+          </div>
+    </div>
 {% endblock contents %}
+
+
+

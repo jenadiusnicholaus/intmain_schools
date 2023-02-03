@@ -28,7 +28,21 @@ STATUS = (
     ('incomplete', 'Incomplate'),
 )
 
+class ModuleCategory(models.Model):
+    category_name = models.CharField(max_length=200,  null= True)
+    slug = models.SlugField(unique=True, max_length=255, blank=True, null=True)
+
+    class Meta:
+        verbose_name = "00. module Category"
+        verbose_name_plural = "00. Module Category"
+
+    def __str__(self):
+        return f' {str(self.category_name)} '
+
+
+
 class Module(models.Model):
+    module_category= models.ForeignKey(ModuleCategory, on_delete=models.SET_NULL, null=True)
     id = models.BigAutoField(primary_key=True)
     module_name = models.CharField(max_length=255, blank=False, null=False, unique=True)
     module_description = MDTextField(null= True)
@@ -145,6 +159,10 @@ class Topics(models.Model):
     order_id = models.IntegerField(blank=False, null=False, default=1)
     slug = models.SlugField(unique=True, max_length=255, blank=True, null=True)
     icon = models.ImageField(default='', blank=True, upload_to='topics_icons')
+    estmated_accomplishmet_time = models.FloatField( blank=True, null=True)
+    is_solo = models.BooleanField(default=True)
+    is_week_project = models.BooleanField(default=False)
+    is_capstone_project= models.BooleanField(default=False)
     icon_medium = ImageSpecField(source='icon',
                                  processors=[Thumbnail(200, 100)],
                                  format='JPEG',

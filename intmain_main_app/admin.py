@@ -29,6 +29,22 @@ class ActivityInline(admin.TabularInline):
     model = Activity
     extra = 1
 
+@admin.register(ModuleCategory)
+class ModeuleCategoryAdmin(admin.ModelAdmin):
+    list_display = (
+        'id', 'category_name',)
+    thumbnail = AdminThumbnail(image_field='icon_small')
+    list_display_links = ('category_name','id')
+    search_fields = ('id',
+                     'category_name',
+                  
+                     )
+    
+    ordering = ['id', 'category_name']
+    prepopulated_fields = {'slug': ('category_name',)}
+    list_per_page = 10
+    inlines = [ModuleInline]
+
 @admin.register(Weeks)
 class WeeksAdmin(admin.ModelAdmin):
     list_display = (
@@ -64,7 +80,7 @@ class ModuleAdmin(admin.ModelAdmin):
 
 @admin.register(Topics)
 class TopicsAdmin(admin.ModelAdmin):
-    list_display = ('id', 'thumbnail', 'module', 'module_week', 'topic_name', 'order_id',  'created_at',)
+    list_display = ('id','estmated_accomplishmet_time', 'thumbnail', 'module', 'module_week', 'topic_name', 'order_id',  'created_at',)
     thumbnail = AdminThumbnail(image_field='icon_small')
     list_display_links = ('topic_name',)
     search_fields = ('id',

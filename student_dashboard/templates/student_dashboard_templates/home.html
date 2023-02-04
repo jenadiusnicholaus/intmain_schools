@@ -3,7 +3,6 @@
 {% block contents %}
 
     <div class="page-body">
-
         <div class= "row">
             <div class="col-xl-12 col-md-6 box-col-6 des-xl-50">
                 <div class="card profile-greeting">
@@ -25,7 +24,7 @@
                   </div>
                   <div class="card-body text-center p-t-0">
                     <h3 class="font-primary" style="color: blue;">Wellcome Back, {{request.user.username}}!</h3>
-                    <p class="font-primary">Welcome to the viho Family! we are glad that you are visite this dashboard. we will be happy to help you grow your business.</p>
+                    <p class="font-primary">Welcome to the intmain Family! we are glad that you are here. we will be happy to help you grow your career.</p>
                     <div class="progress">
                         <div class="progress-bar bg-primary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
@@ -46,27 +45,7 @@
                     <div class="confetti-piece"></div>
                     <div class="code-box-copy">
                       <button class="code-box-copy__btn btn-clipboard" data-clipboard-target="#profile-greeting" title="Copy"><i class="icofont icofont-copy-alt"></i></button>
-                      <pre class="language-html"><code class=" language-html" id="profile-greeting">                                     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>card profile-greeting<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> 
-                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>card-header<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>header-top<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>setting-list bg-primary<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>list-unstyled setting-option<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>setting-white<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>icon-settings<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
-                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>view-html fa fa-code font-white<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
-                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>icofont icofont-maximize full-card font-white<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
-                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>icofont icofont-minus minimize-card font-white<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
-                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>icofont icofont-refresh reload-card font-white<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
-                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>icofont icofont-error close-card font-white<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
-                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
-                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>card-body text-center<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>font-light<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Wellcome Back, John!!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
-                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Lorem ipsum is simply dummy text of the printing and typesetting industry.Lorem ipsum has been<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
-                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn btn-light<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Update <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
-                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
+                 
                     </div>
                   </div>
                 </div>
@@ -130,9 +109,9 @@
                                         </ul>
                                       </div>
 
-                                      <a class="btn btn-square btn-outline-danger btn-xs" type="button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg" data-bs-original-title="" title="">{% if topic.is_solo %}Solo{%else%}Group{% endif%}</a>
+                                      <a class="btn btn-square btn-outline-danger btn-xs" type="button"  data-bs-original-title="" title="">{% if topic.is_solo %}Solo{%else%}Group{% endif%}</a>
                                       {% if topic.is_week_project %}
-                                      <a href="{% url 'topic_details' topic.slug %}" class="btn btn-square btn-outline-success btn-xs" type="button" data-bs-original-title="" title="">request a review</a>
+                                      <a  data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg" class="btn btn-square btn-outline-success btn-xs" type="button" data-bs-original-title="" title="">Request a review</a>
                                       {%endif%}
                                       {% if topic.is_capstone_project %}
                                       <a href="" class="btn btn-square btn-outline-primary btn-xs" type="button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg" data-bs-original-title="" title="">request a review</a>
@@ -146,7 +125,7 @@
                                   </ul>
                                   <div class="code-box-copy">
                                     <button class="code-box-copy__btn btn-clipboard" data-clipboard-target="#recent-activity" title="" data-bs-original-title="Copy" aria-label="Copy"><i class="icofont icofont-copy-alt"></i></button>
-                                    
+ 
                                   </div>
                                 </div>
                               </div>
@@ -157,26 +136,7 @@
                     </div>
                   </div>
                   {%endfor%}
-                  {% comment %} <div class="card">
-                    <div class="card-header bg-primary" id="heading22">
-                      <h5 class="mb-0">
-                        <button class="btn btn-link collapsed text-white" data-bs-toggle="collapse" data-bs-target="#collapse22" aria-expanded="false" aria-controls="collapse22"><i class="icofont icofont-support"></i>Collapsible Group Item #<span>2</span></button>
-                      </h5>
-                    </div>
-                    <div class="collapse" id="collapse22" aria-labelledby="headingeight" data-bs-parent="#accordionicon">
-                      <div class="card-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-header bg-primary" id="heading33">
-                      <h5 class="mb-0">
-                        <button class="btn btn-link collapsed text-white" data-bs-toggle="collapse" data-bs-target="#collapse44" aria-expanded="false" aria-controls="collapse44"><i class="icofont icofont-tasks-alt"></i>Collapsible Group Item #<span>3</span></button>
-                      </h5>
-                    </div>
-                    <div class="collapse" id="collapse44" data-bs-parent="#accordionicon">
-                      <div class="card-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
-                    </div>
-                  </div> {% endcomment %}
+
                 </div>
               </div>
            
@@ -197,42 +157,43 @@
             <div class="modal-body">
               <div class="card">
                 <div class="card-header pb-0">
-                  <h5>Supported elements</h5><span>Not interested in custom validation feedback messages or writing JavaScript to change form behaviors? All good, you can use the browser defaults. Try submitting the form below. Depending on your browser and OS, you’ll see a slightly different style of feedback.</span><span>While these feedback styles cannot be styled with CSS, you can still customize the feedback text through JavaScript.</span>
+                  <h5 style="color: black;">Important!</h5><span>Ones your activty is done then is the time to submit for the reviews</span><span>We have a team of more active developers that will take an intensive look on your work and the they will give feedback one thay are done for the reviews.</span>
                 </div>
                 <div class="card-body">
                   <form class="was-validated">
-                    <div class="mb-3">
+                    <div class="mb-2">
+                      <label class="form-label" for="validationTextarea">Textarea</label>
+                      <input type="text" class="form-control is-invalid" id="validationTextarea" placeholder="Enter you project github link" required="">
+                      <div class="invalid-feedback">Please enter you Project giuthub link</div>
+                    </div>
+                    <div class="mb-2">
                       <label class="form-label" for="validationTextarea">Textarea</label>
                       <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Required example textarea" required=""></textarea>
-                      <div class="invalid-feedback">Please enter a message in the textarea.</div>
+                      <div class="invalid-feedback">Please enter a message in this area </div>
                     </div>
-                    <div class="form-check mb-3">
-                      <input class="form-check-input" id="validationFormCheck1" type="checkbox" required="">
-                      <label class="form-check-label" for="validationFormCheck1">Check this checkbox</label>
-                      <div class="invalid-feedback">Example invalid feedback text</div>
-                    </div>
+                    <p style="color:black"></p>
+                    <span style="color: black">Did you use other source when performing this task?</span>
+                    <label class="form-check-label" for="validationFormCheck1">Did you use another source to finish this task?</label>
                     <div class="form-check">
-                      <input class="form-check-input" id="validationFormCheck2" type="radio" name="radio-stacked" required="">
-                      <label class="form-check-label" for="validationFormCheck2">Toggle this radio</label>
+                      <input class="form-check-input" id="validationFormCheck2" type="radio" name="source" required="">
+                      <label class="form-check-label" for="validationFormCheck2">Yes</label>
                     </div>
-                    <div class="form-check mb-3">
-                      <input class="form-check-input" id="validationFormCheck3" type="radio" name="radio-stacked" required="">
-                      <label class="form-check-label" for="validationFormCheck3">Or toggle this other radio</label>
+                    <div class="form-check mb-2">
+                      <input class="form-check-input" id="validationFormCheck3" type="radio" name="source" required="">
+                      <label class="form-check-label" for="validationFormCheck3">No</label>
                       <div class="invalid-feedback">More example invalid feedback text</div>
                     </div>
-                    <div class="mb-3">
-                      <select class="form-select" required="" aria-label="select example">
-                        <option value="">Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                      <div class="invalid-feedback">Example invalid select feedback</div>
+                    <span style="color: black">Like it?</span>
+                    <div class="form-check">
+                      <input class="form-check-input" id="validationFormCheck2" type="radio" name="like-it" required="">
+                      <label class="form-check-label" for="validationFormCheck2">Yes</label>
                     </div>
-                    <div>
-                      <input class="form-control" type="file" aria-label="file example" required="">
-                      <div class="invalid-feedback">Example invalid form file feedback</div>
+                    <div class="form-check mb-2">
+                      <input class="form-check-input" id="validationFormCheck3" type="radio" name="like-it" required="">
+                      <label class="form-check-label" for="validationFormCheck3">No</label>
+                      <div class="invalid-feedback">More example invalid feedback text</div>
                     </div>
+                    <button class="ntn btn-primary"> Submitting for Reviews</button>
                   </form>
                 </div>
               </div>

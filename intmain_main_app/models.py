@@ -206,7 +206,7 @@ class Activity(models.Model):
     topic = models.ForeignKey(Topics, on_delete=models.CASCADE, blank=False, null=True, related_name="activity_set")
 
     # notes = RichTextUploadingField(blank=False, null=False)
-    Activity = MDTextField(null= True)
+    activity = MDTextField(null= True)
     status = models.BooleanField(default='not_start', choices=STATUS, null=True, )
     status = models.CharField(choices=STATUS, blank=False, null=False, default='draft', max_length=120)
     created_at = models.DateTimeField(auto_now_add=True)

@@ -48,75 +48,17 @@
                     <ul class="blog-social">
                       <li class="digits">{{topic_details.created_at}}</li>
                       <li><i class="icofont icofont-user"></i>{{topic_details.module_week.author}}</li>
-                      {% comment %} <li class="digits"><i class="icofont icofont-thumbs-up"></i>02<span>Hits</span></li>
-                      <li class="digits"><i class="icofont icofont-ui-chat"></i>598 Comments</li> {% endcomment %}
                     </ul>
-                   
                     <div class="single-blog-content-top">
                     {% for activity in topic_details.activity_set.all%}
-                     {{activity.Activity|markdownify}}
+                     {{activity.activity|markdownify}}
                      {%endfor%}
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            {% comment %} <div class="card comment-box">
-              <div class="card-body">
-                <h4>Comment                             </h4>
-                <ul>
-                  <li>
-                    <div class="media align-self-center"><img class="align-self-center" src="../assets/images/blog/comment.jpg" alt="Generic placeholder image">
-                      <div class="media-body">
-                        <div class="row">
-                          <div class="col-md-4 xl-100"><a href="user-profile.html">
-                              <h6 class="mt-0">Jolio Mark<span> ( Designer )</span></h6></a></div>
-                          <div class="col-md-8 xl-100">
-                            <ul class="comment-social learning-comment">
-                              <li class="digits"><i class="icofont icofont-thumbs-up"></i>02 Hits</li>
-                              <li class="digits"><i class="icofont icofont-ui-chat"></i>598 Comments</li>
-                            </ul>
-                          </div>
-                        </div>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <ul>
-                      <li>
-                        <div class="media"><img class="align-self-center" src="../assets/images/blog/9.jpg" alt="Generic placeholder image">
-                          <div class="media-body">
-                            <div class="row">
-                              <div class="col-xl-12"><a href="user-profile.html">
-                                  <h6 class="mt-0">Jolio Mark<span> ( Designer )</span></h6></a></div>
-                            </div>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <div class="media"><img class="align-self-center" src="../assets/images/blog/4.jpg" alt="Generic placeholder image">
-                      <div class="media-body">
-                        <div class="row">
-                          <div class="col-md-4 xl-100"><a href="user-profile.html">
-                              <h6 class="mt-0">Jolio Mark<span> ( Designer )</span></h6></a></div>
-                          <div class="col-md-8 xl-100">
-                            <ul class="comment-social learning-comment">
-                              <li class="digits"><i class="icofont icofont-thumbs-up"></i>02 Hits</li>
-                              <li class="digits"><i class="icofont icofont-ui-chat"></i>598 Comments</li>
-                            </ul>
-                          </div>
-                        </div>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div> {% endcomment %}
+           
           </div>
         </div>
         <div class="col-xl-3 xl-40">
@@ -128,17 +70,11 @@
                     <div class="card">
                       <div class="card-header">
                         <h5 class="mb-0 p-0">
-                          <button class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#collapseicon" aria-expanded="true" aria-controls="collapseicon">Find Course</button>
+                          <button class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#collapseicon" aria-expanded="true" aria-controls="collapseicon">One is Done Submit for Reviews </button>
                         </h5>
                       </div>
                       <div class="collapse show" id="collapseicon" aria-labelledby="collapseicon" data-bs-parent="#accordion">
                         <div class="card-body filter-cards-view animate-chk">
-                          <div class="job-filter">
-                            <div class="faq-form">
-                              <input class="form-control" type="text" placeholder="Search.."><i class="search-icon" data-feather="search"></i>
-                            </div>
-                          </div>
-                         
                           <button class="btn btn-primary text-center" type="button">Submit Activity</button>
                         </div>
                       </div>

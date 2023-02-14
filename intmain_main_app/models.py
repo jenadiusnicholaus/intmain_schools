@@ -11,7 +11,7 @@ from django.utils.text import slugify
 from imagekit.models import ImageSpecField
 from pilkit.processors import Thumbnail
 from django.conf import settings
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from mdeditor.fields import MDTextField
 from django.urls import reverse
 
@@ -233,12 +233,29 @@ class ModuleEnrollemnet(models.Model):
    
     class Meta:
         verbose_name = "6: ModuleEnrolemnet"
-        verbose_name_plural = "ModuleEnrolemnets"
+        verbose_name_plural =  verbose_name
 
     def __str__(self):
         return self.user.username
 
     def get_absolute_url(self):
         return reverse("moduleEnrolemnet_detail", kwargs={"pk": self.pk})
+    
+
+class CodeReviews(models.Model):
+    group = models.ForeignKey(Group, on_delete=models.SET_NULL, null=True)
+    user =  models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name="student_to_review")
+    github_project_url = models.CharField(max_length=400, null=True)
+    descrition = models.TextField(max_length=500, null = True)
+    have_other_source_of_ref = models.BooleanField(default=False)
+    like_it = models.BooleanField(default=False)
+
+
+    class Meta:
+        verbose_name = "7: Code reviews"
+        verbose_name_plural = verbose_name
+    def __str__(self):
+        return f"{self.user.username} {self.group.name}"
+
 
 

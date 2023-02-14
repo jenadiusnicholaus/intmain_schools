@@ -207,4 +207,13 @@ class ModuleEnrollementAdmin(admin.ModelAdmin):
     list_display_links = ('id','user',)
     # inlines = [ModuleInline]
 
+
+@admin.register(CodeReviews)
+class ModuleEnrollementAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', )
+    list_display_links = ('id','user',)
+    # inlines = [ModuleInline]
+
+  
+
   

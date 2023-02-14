@@ -92,24 +92,24 @@ WSGI_APPLICATION = "intmain_settings_app.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR , 'db.sqlite3'),
-    }
-
-}
 # DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql_psycopg2",
-#         "NAME": config('DATABASE_NAME'),
-#         "USER": "intmainadmin",
-#         "USER": config('DATABASE_USER'),
-#         "PASSWORD": config('DATABASE_PASSWORD'),
-#         "HOST": "localhost",
-#         "PORT": "",
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR , 'db.sqlite3'),
 #     }
+
 # }
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": config('DATABASE_NAME'),
+        "USER": "intmainadmin",
+        "USER": config('DATABASE_USER'),
+        "PASSWORD": config('DATABASE_PASSWORD'),
+        "HOST": "localhost",
+        "PORT": "",
+    }
+}
 
 
 # Password validation
